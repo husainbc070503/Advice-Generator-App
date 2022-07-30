@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frontend Mentor | Advice Generator App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="advice-card">
+            <span id="advice_no"></span>
+            <div id="advice"></div>
+            <div class="pattern">
+                <img src="images/pattern-divider-desktop.svg">
+            </div>
+            <div class="dice">
+                <img src="images/icon-dice.svg" onclick="getAdvice()">
+            </div>
+        </div>
+        <div class="attribution">
+            Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+            Coded by <a href="#">Husain B Champawala</a>.
+        </div>
+    </div>
+
+    <script>
+        window.onload = function () {
+            alert('Please click on dice to get all the advices. The advices will automatically load after every 2 sec..')
+        }
+        let id = 1;
+        let adv = document.getElementById('advice')
+        function getAdvice() {
+            setInterval(() => {
+                document.getElementById('advice_no').innerText = `ADVICE #${id}`
+                fetch(`https://api.adviceslip.com/advice/${id}`)
+                    .then(x => x.text())
+                    .then(y => {
+                        var str = JSON.parse(y)
+                        if (id == 22)
+                            adv.innerText = `"${str.message.text}"`
+                        else
+                            adv.innerText = `"${str.slip.advice}"`
+                        id++
+                    })
+            }, 2000)
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Manrope', sans-serif;
+    box-sizing: border-box;
+}
+
+.container {
+    width: 100%;
+    height: 100vh;
+    background: hsl(218, 23%, 16%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.advice-card {
+    width: auto;
+    padding: 30px;
+    background: hsl(217, 19%, 24%);
+    border-radius: 10px;
+    text-align: center;
+    position: relative;
+}
+
+.advice-card span {
+    letter-spacing: 4px;
+    color: hsl(150, 100%, 66%);
+    margin: 20px 0;
+    font-size: 14px;
+}
+
+.advice-card .pattern {
+    margin: 40px 0;
+}
+
+#advice {
+    margin: 40px 0;
+    font-size: 30px;
+    color: hsl(193, 38%, 86%);
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.dice {
+    position: absolute;
+    bottom: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    background: hsl(150, 100%, 66%);
+    padding: 18px;
+    cursor: pointer;
+    display: flex;
+    transform: all 0.8s;
+}
+
+.dice:hover {
+    box-shadow: 0 0 20px hsl(150, 100%, 66%);
+}
+
+.attribution {
+    position: absolute;
+    bottom: 40px;
+    color: hsl(193, 38%, 86%);
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    word-spacing: 2px;
+}
+
+.attribution a {
+    text-decoration: none;
+    color: hsl(150, 100%, 66%);
+    position: relative;
+}
+
+.attribution a::before {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: hsl(150, 100%, 66%);
+    transition: width 0.4s;
+}
+
+.attribution a:hover::before {
+    width: 100%;
+}
+
+@media only screen and (max-width:700px) {
+
+    .advice-card {
+        width: 100%;
+        height: auto;
+        margin: 0 20px;
+    }
+
+    .advice-card .pattern,
+    #advice {
+        margin: 30px 0;
+    }
+
+    .advice-card .pattern img {
+        width: 100%;
+    }
+}
