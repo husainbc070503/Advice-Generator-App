@@ -40,7 +40,7 @@
                     .then(x => x.text())
                     .then(y => {
                         var str = JSON.parse(y)
-                        if (id == 22)
+                        if (id == 22 || id == 48)
                             adv.innerText = `"${str.message.text}"`
                         else
                             adv.innerText = `"${str.slip.advice}"`
